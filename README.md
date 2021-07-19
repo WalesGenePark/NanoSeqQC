@@ -3,6 +3,8 @@ A Nextflow pipeline for automatically running QC on Nano runs
 
 WARNING - UNDER CURRENT DEVELOPMENT AND NOT FULLY FUNCTIONAL
 
+large sections of nextflow coding are based off the excellent ncov2019-artic-nf pipeline `connor-lab/ncov2019-artic-nf`
+
 #### Introduction
 ------------
 
