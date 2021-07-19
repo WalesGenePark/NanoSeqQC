@@ -13,7 +13,7 @@ Additionally, reads will be run through Kraken2 to confirm species profile (and 
 
 ##### Illumina
 
-'nextflow run WalesGenePark/NanoSeqQC --profile singularity,slurm --prefix "job_output" --directory /path/to/reads --outdir /path/to/outfile'
+`nextflow run WalesGenePark/NanoSeqQC --profile singularity,slurm --prefix "job_output" --directory /path/to/reads --outdir /path/to/outfile`
 
 ------------
 
@@ -23,7 +23,7 @@ An up-to-date version of Nextflow is required because the pipeline is written in
 
 #### Executor
 
-By default, the pipeline runs locally unless specifying '-profile slurm' to send to a SLURM cluster.
+By default, the pipeline runs locally unless specifying `-profile slurm` to send to a SLURM cluster.
 
 #### Config
 
