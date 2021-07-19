@@ -19,6 +19,7 @@ dependencies:
   - matplotlib=3.3.3
   - pandas=0.23.0=py36_1
   - fastp=0.20.1-1
+  - multiqc=1.7
   - pyvcf=0.6.8
   - pyyaml=5.3.1" >> /environment.yml
   
