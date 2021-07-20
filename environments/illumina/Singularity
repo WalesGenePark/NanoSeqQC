@@ -37,7 +37,7 @@ apt-get install -y git procps curl rsync g++ gcc bzip2 libc-dev ncurses-dev xz-u
 apt-get clean -y
 
 cd /usr/local/bin
-curl -fsSL "https://github.com/DerrickWood/kraken2/archive/v2.0.7-beta.tar.gz" | tar xz
+/usr/bin/curl -fsSL "https://github.com/DerrickWood/kraken2/archive/v2.0.7-beta.tar.gz" | tar xz
     cd kraken2-2.0.7-beta
     ./install_kraken2.sh /usr/local/bin
 cd /usr/local/bin
