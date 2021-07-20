@@ -18,7 +18,7 @@ dependencies:
   - libxcb
   - matplotlib=3.3.3
   - pandas=0.23.0=py36_1
-  - fastp=0.20.1-1
+  - fastp=0.20.1
   - multiqc=1.7
   - pyvcf=0.6.8
   - pyyaml=5.3.1" >> /environment.yml
@@ -33,7 +33,7 @@ Stage: final
 
 %post
 apt-get update && \
-apt-get install -y git procps curl rsync g++ gcc bzip2-dev libc-dev ncurses-dev xz-dev zlib0dev perl make && \
+apt-get install -y git procps curl rsync g++ gcc bzip2 libc-dev ncurses-dev xz-utils zlib perl make && \
 apt-get clean -y
 
 cd /usr/local/bin
