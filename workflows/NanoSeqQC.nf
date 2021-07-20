@@ -12,7 +12,7 @@ include {multiQC} from '../modules/illumina.nf'
 
 // check kraken index exists
 workflow checkReferenceFiles {
-if (params.krakendb ) {
+if ( params.krakendb ) {
  Channel.fromPath(params.krakendb)
    .set{ ch_krakendbfolder }
 } else {
