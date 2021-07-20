@@ -39,7 +39,7 @@ process krakenSamples {
   publishDir "$params.outdir/$task.process.replaceAll(":","_")}", pattern: "${sampleName}.krona.html", mode: 'copy'
   
   input:
-    tuple sampleName, path(forward), path(reverse)
+    tuple sampleName, path(forward), path(reverse), path(krakendb)
     
   output:
     tuple(sampleName, path("${sampleName}.krona.html"))
