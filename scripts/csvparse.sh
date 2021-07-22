@@ -10,7 +10,7 @@ DELIMITER=","
 printf 'reads' >> readcount.txt
 echo '' >> readcount.txt
 
-for i in $(cut -f 2 -d "${DELIMITER}" testNSQC.csv );
+for i in $(cut -f 2 -d "${DELIMITER}" metadata.csv );
 do
         if grep -m 1 "total_reads" ${i}.json; then
                 grep -m 1 "total_reads" ${i}.json >> readcount.txt
@@ -29,7 +29,7 @@ DELIMITER=","
 printf 'Q30' >> Q30.txt
 echo '' >> Q30.txt
 
-for i in $(cut -f 2 -d "${DELIMITER}" testNSQC.csv );
+for i in $(cut -f 2 -d "${DELIMITER}" metadata.csv );
 do
         if grep -m 1 "q30_rate" ${i}.json; then
                 grep -m 1 "q30_rate" ${i}.json >> Q30.txt
@@ -47,7 +47,7 @@ DELIMITER=","
 printf 'GC' >> GC.txt
 echo '' >> GC.txt
 
-for i in $(cut -f 2 -d "${DELIMITER}" testNSQC.csv );
+for i in $(cut -f 2 -d "${DELIMITER}" metadata.csv );
 do
         if grep -m 1 "gc_content" ${i}.json; then
                 grep -m 1 "gc_content" ${i}.json >> GC.txt
@@ -61,7 +61,7 @@ done
 
 
 #add to metadata.csv
-awk -F, '{getline f1 <"readcount.txt" ; getline f2 <"Q30.txt" ; getline f3 <"GC.txt" ; print $1,$2,$3,$4,f1,f2,f3}' OFS=, testNSQC.csv >> tmp.csv
+awk -F, '{getline f1 <"readcount.txt" ; getline f2 <"Q30.txt" ; getline f3 <"GC.txt" ; print $1,$2,$3,$4,f1,f2,f3}' OFS=, metadata.csv >> tmp.csv
 
 
 
