@@ -63,14 +63,19 @@ process yamlparse {
   
   cpus 1
   
-  publishDir "${params.outdir}/" pattern: "${outdir}.${###}.yaml", mode: 'copy'
+  publishDir "${params.outdir}/" pattern: "${outdir}.${read_count_Vs_RIN}.yml", mode: 'copy'
+  publishDir "${params.outdir}/" pattern: "${outdir}.${read_count_Vs_Conc_ngul}.yml", mode: 'copy'
+  
+ publishDir "${params.outdir}/" pattern: "${outdir}.${outmetadata}.csv", mode: 'copy'
   
   input:
   file metadata_file from metadata
   tuple(sampleName, path(####)
   
   output:
-  tuple(outdir, path("$outdir}.####.yaml"))
+  tuple(outdir, path("$outdir}.read_count_Vs_RIN.yml"))
+  tuple(outdir, path("$outdir}.read_count_Vs_Conc_ngul.yml"))
+  tuple(outdir, path("$outdir}.outmetadata.csv"))
   
   script:
   """
