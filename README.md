@@ -23,6 +23,10 @@ Additionally, reads will be run through Kraken2 to confirm species profile (and 
 
 An up-to-date version of Nextflow is required because the pipeline is written in DSL2. Following the instructions at https://www.nextflow.io/ to download and install Nextflow should get you a recent-enough version.
 
+1: git clone the repository
+2: chmod +x the two scripts in NanoSeqQC/scripts/
+3: run the singularity build
+
 #### Executor
 
 By default, the pipeline runs locally unless specifying `-profile slurm` to send to a SLURM cluster.
