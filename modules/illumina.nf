@@ -52,6 +52,33 @@ process krakenSamples {
     """
  }
 
+metadata = Channel.fromPath( 'metadata.csv' )
+
+process yamlparse {
+  /** 
+  *Parses key statistics from fastp json files for each sample into a metadata file and then generates yaml files for scatterplots in multiQC
+  */
+
+  tag { outdir }
+  
+  cpus 1
+  
+  publishDir "${params.outdir}/" pattern: "${outdir}.${###}.yaml", mode: 'copy'
+  
+  input:
+  file metadata_file from metadata
+  tuple(sampleName, path(####)
+  
+  output:
+  tuple(outdir, path("$outdir}.####.yaml"))
+  
+  script:
+  """
+  ../scripts/./csvparse.sh
+  """
+}
+
+
 process multiQC {
   /**
   * Runs MultiQC on the outputs from fastp reports, performing additional comparison metrics from lab-derived measurements e.g. RIN number
