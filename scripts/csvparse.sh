@@ -113,5 +113,5 @@ cat metadata.csv | while read -r line
 
 
 
-#remove tmp.csv
-rm tmp.csv
+#move tmp.csv to output
+mv tmp.csv outmetadta.csv
