@@ -21,12 +21,14 @@ process fastpTrimming {
   """if {{ \$(gunzip -c ${forward} | head -n4 | wc -l) -eq 0 ]]; then
     exit 0
   else
-      if (params.fastp){
-        ivarCmd = "ivar trim -e"
-    } else {
-        ivarCmd = "ivar trim"
+      if (params.fastpInputVer = paired){
+        fastpCmd = "--in1 $forward --in2 $reverse --out1 ${sampleName}_val_1.fq --out2 ${sampleName}_val_1.fq"
+    } elif (params.fastpInputVer = single {
+        fastpCmd = "-i $forward -o ${sampleName}_val_1.fq"
+    } else (params.fastpInputVer = merged){
+        fastpCmd = "--merge $forward --merged_out -o ${sampleName}_val_1.fq"
     }
-    fastp --in1 $forward --in2 $reverse --out1 ${sampleName}_val_1.fq --out2 ${sampleName}_val_1.fq --thread 2 -h ${sampleName}.html -j ${sampleName}.json
+    fastp ${fastpCmd} --thread 2 -h ${sampleName}.html -j ${sampleName}.json
   fi
   """
 }
